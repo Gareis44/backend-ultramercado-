@@ -37,13 +37,13 @@ def obtener_productos():
 
         if consulta:
             cursor.execute("""
-                SELECT db, nombre, precio, imagen, condicion_especial
+                SELECT id, db, nombre, precio, imagen, condicion_especial
                 FROM productos
                 WHERE LOWER(nombre) LIKE %s
             """, (f"%{consulta}%",))
         else:
             cursor.execute("""
-                SELECT db, nombre, precio, imagen, condicion_especial
+                SELECT id, db, nombre, precio, imagen, condicion_especial
                 FROM productos
             """)
 
