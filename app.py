@@ -344,7 +344,6 @@ def obtener_productos():
                     WHERE LOWER(nombre) LIKE %s 
                     AND DATE(fecha) = %s
                     ORDER BY fecha DESC, nombre
-                    LIMIT 100
                 """, (f"%{consulta}%", ayer))
             else:
                 cursor.execute("""
@@ -352,7 +351,6 @@ def obtener_productos():
                     FROM productos
                     WHERE DATE(fecha) = %s
                     ORDER BY fecha DESC, nombre
-                    LIMIT 100
                 """, (ayer,))
             
             resultados = cursor.fetchall()
